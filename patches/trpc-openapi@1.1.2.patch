@@ -1,0 +1,13 @@
+diff --git a/dist/generator/paths.js b/dist/generator/paths.js
+index 7778ccbfc56bf9baf7ecec1383a365bdc5346b2a..f848cc26451e4d7f23750a4378e51dd6f29e05e6 100644
+--- a/dist/generator/paths.js
++++ b/dist/generator/paths.js
+@@ -11,7 +11,7 @@ const getOpenApiPathsObject = (appRouter, pathsObject) => {
+     const procedures = appRouter._def.procedures;
+     (0, procedure_1.forEachOpenApiProcedure)(procedures, ({ path: procedurePath, type, procedure, openapi }) => {
+         var _a;
+-        const operationId = `${type}.${procedurePath}`;
++        const operationId = `${type}${procedurePath.slice(0, 1).toUpperCase()}${procedurePath.slice(1)}`;
+         try {
+             if (type === 'subscription') {
+                 throw new server_1.TRPCError({
